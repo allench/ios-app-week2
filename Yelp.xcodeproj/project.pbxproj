@@ -22,6 +22,8 @@
 		42FD6C6618DC286B000BF2B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FD6C4E18DC286B000BF2B9 /* UIKit.framework */; };
 		42FD6C6E18DC286B000BF2B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42FD6C6C18DC286B000BF2B9 /* InfoPlist.strings */; };
 		42FD6C7018DC286B000BF2B9 /* YelpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FD6C6F18DC286B000BF2B9 /* YelpTests.m */; };
+		5A9756941B3E423100D40450 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9756921B3E423100D40450 /* FilterViewController.m */; };
+		5A9756951B3E423100D40450 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9756931B3E423100D40450 /* FilterViewController.xib */; };
 		5AA889B71B3C43B700AD483B /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA889B61B3C43B700AD483B /* Business.m */; };
 		5AA889BC1B3C58C400AD483B /* BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA889BA1B3C58C400AD483B /* BusinessCell.m */; };
 		5AA889BD1B3C58C400AD483B /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AA889BB1B3C58C400AD483B /* BusinessCell.xib */; };
@@ -60,6 +62,9 @@
 		42FD6C6B18DC286B000BF2B9 /* YelpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YelpTests-Info.plist"; sourceTree = "<group>"; };
 		42FD6C6D18DC286B000BF2B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		42FD6C6F18DC286B000BF2B9 /* YelpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YelpTests.m; sourceTree = "<group>"; };
+		5A9756911B3E423100D40450 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		5A9756921B3E423100D40450 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		5A9756931B3E423100D40450 /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		5AA889B51B3C43B700AD483B /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
 		5AA889B61B3C43B700AD483B /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
 		5AA889B91B3C58C400AD483B /* BusinessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessCell.h; sourceTree = "<group>"; };
@@ -109,6 +114,9 @@
 				420474F818DC2B2100E88E07 /* MainViewController.h */,
 				420474F918DC2B2100E88E07 /* MainViewController.m */,
 				420474FA18DC2B2100E88E07 /* MainViewController.xib */,
+				5A9756911B3E423100D40450 /* FilterViewController.h */,
+				5A9756921B3E423100D40450 /* FilterViewController.m */,
+				5A9756931B3E423100D40450 /* FilterViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -285,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A9756951B3E423100D40450 /* FilterViewController.xib in Resources */,
 				42FD6C5518DC286B000BF2B9 /* InfoPlist.strings in Resources */,
 				5AA889BD1B3C58C400AD483B /* BusinessCell.xib in Resources */,
 				420474FC18DC2B2100E88E07 /* MainViewController.xib in Resources */,
@@ -344,6 +353,7 @@
 				42FD6C5B18DC286B000BF2B9 /* AppDelegate.m in Sources */,
 				42FD6C5718DC286B000BF2B9 /* main.m in Sources */,
 				420474F618DC299500E88E07 /* YelpClient.m in Sources */,
+				5A9756941B3E423100D40450 /* FilterViewController.m in Sources */,
 				420474FB18DC2B2100E88E07 /* MainViewController.m in Sources */,
 				5AA889BC1B3C58C400AD483B /* BusinessCell.m in Sources */,
 			);
