@@ -8,7 +8,22 @@
 
 #import "Business.h"
 
+@interface Business()
+
+- (NSString *)valueForKeyPathWithArrayIndex: (NSDictionary *)dictionary keyPath:(NSString *)keyPath index:(NSInteger)index;
+
+@end
+
 @implementation Business
+
+- (NSString *)valueForKeyPathWithArrayIndex: (NSDictionary *)dictionary keyPath:(NSString *)keyPath index:(NSInteger)index {
+    NSString *value = @"";
+    NSArray *aItems = [dictionary valueForKeyPath:keyPath];
+    if (aItems.count > 0) {
+        value = aItems[0];
+    }
+    return value;
+}
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -17,11 +32,11 @@
         self.imageUrl = dictionary[@"image_url"];
         self.numReviews = [dictionary[@"review_count"] integerValue];
         self.ratingImageUrl = dictionary[@"rating_img_url"];
-        
-        NSString *street = [dictionary valueForKeyPath:@"location.address"][0];
-        NSString *neighborhood = [dictionary valueForKeyPath:@"location.neighborhoods"][0];
-        self.address = [NSString stringWithFormat:@"%@, %@", street, neighborhood];
 
+        NSString *street = [self valueForKeyPathWithArrayIndex:dictionary keyPath:@"location.address" index:0];
+        NSString *neighborhood = [self valueForKeyPathWithArrayIndex:dictionary keyPath:@"location.neighborhoods" index:0];
+        self.address = [NSString stringWithFormat:@"%@, %@", street, neighborhood];
+        
         float milesPerMeter = 0.000621371;
         self.distance = [dictionary[@"distance"] integerValue] * milesPerMeter;
         
@@ -30,7 +45,7 @@
         [categories enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [categoryNames addObject:obj[0]];
         }];
-        self.categories = [categoryNames componentsJoinedByString:@", "];
+        self.categories = [categoryNames componentsJoinedByString:@","];
     }
     return self;
 }

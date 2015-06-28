@@ -17,9 +17,10 @@ NSString * const kYelpConsumerSecret = @"33QCvh5bIF5jIHR5klQr7RtBDhQ";
 NSString * const kYelpToken = @"uRcRswHFYa1VkDrGV6LAW2F8clGh5JHV";
 NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
-@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, FilterViewControllerDelegate>
+@interface MainViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, FilterViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) YelpClient *client;
 @property (nonatomic, strong) NSArray *businesses;
 
@@ -49,8 +50,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     if (self) {
         // You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
         self.client = [[YelpClient alloc] initWithConsumerKey:kYelpConsumerKey consumerSecret:kYelpConsumerSecret accessToken:kYelpToken accessSecret:kYelpTokenSecret];
-        
-        [self fetchBusinessWithQuery:@"Restaurants" params:nil];
     }
     return self;
 }
@@ -69,12 +68,18 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     self.tableView.estimatedRowHeight = 100;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    // Title
-    self.title = @"Yelp";
-    
     // LeftBarBtn
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilterButtonClicked)];
     
+    // SearchBar
+    self.searchBar = [[UISearchBar alloc]init];
+    self.searchBar.delegate = self;
+    self.navigationItem.titleView = self.searchBar;
+    
+    // Do Query
+    NSString *query = self.searchBar.text;
+    [self fetchBusinessWithQuery:query params:nil];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,12 +98,19 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     return cell;
 }
 
+#pragma mark - UISearchBar methods
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    // Do Query
+    [self fetchBusinessWithQuery:searchBar.text params:nil];
+    [searchBar resignFirstResponder];
+}
+
 #pragma mark - FilterViewControlerDelegate
 - (void)filterViewController:(FilterViewController *)fvc didChangeFilter:(NSDictionary *)filter {
     // fire a new network event
     NSLog(@"fire a new netwrok event: @%@", filter);
-    
-    [self fetchBusinessWithQuery:@"Restaurants" params:filter];
+    NSString *query = self.searchBar.text;
+    [self fetchBusinessWithQuery:query params:filter];
 }
 
 #pragma mark - Private Methods
