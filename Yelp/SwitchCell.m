@@ -10,8 +10,6 @@
 
 @interface SwitchCell()
 
-@property (nonatomic, weak) IBOutlet UISwitch *switchButton;
-
 - (IBAction)onSwitchValueChanged:(id)sender;
 
 @end
@@ -40,7 +38,7 @@
 }
 
 - (IBAction)onSwitchValueChanged:(id)sender {
-    [self.delegate SwitchCell:self didUpdateValue:self.switchButton.on];
+    [self.delegate SwitchCell:self didUpdateValue:self.switchButton.on didUpdateRadius:self.switchSlider.value];
 }
 
 @end

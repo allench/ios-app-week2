@@ -13,14 +13,18 @@
 @protocol SwitchCellDelegate <NSObject>
 
 - (void) SwitchCell: (SwitchCell *)cell
-     didUpdateValue: (BOOL)value;
+     didUpdateValue: (BOOL)value
+    didUpdateRadius: (float)radius;
 
 @end
 
 @interface SwitchCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UILabel *switchLabel;
+@property (weak, nonatomic) IBOutlet UILabel *switchLabel;
+@property (weak, nonatomic) IBOutlet UISlider *switchSlider;
+@property (weak, nonatomic) IBOutlet UISwitch *switchButton;
 
+@property (nonatomic, assign) NSInteger radius;
 @property (nonatomic, assign) BOOL on;
 @property (nonatomic, weak) id<SwitchCellDelegate> delegate;
 

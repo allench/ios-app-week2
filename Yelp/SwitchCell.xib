@@ -26,11 +26,21 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <slider opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20000" minValue="0.0" maxValue="40000" translatesAutoresizingMaskIntoConstraints="NO" id="QEY-r7-Afg">
+                        <rect key="frame" x="68" y="6" width="185" height="32"/>
+                        <connections>
+                            <action selector="onSwitchValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="s29-jp-HgY"/>
+                        </connections>
+                    </slider>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0jQ-Xw-MAk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="2Yh-Fo-zD7"/>
                     <constraint firstItem="WZW-kl-N6s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="376-Ed-M1a"/>
                     <constraint firstAttribute="bottom" secondItem="WZW-kl-N6s" secondAttribute="bottom" constant="6" id="7AJ-ba-mcC"/>
+                    <constraint firstItem="QEY-r7-Afg" firstAttribute="leading" secondItem="0jQ-Xw-MAk" secondAttribute="trailing" constant="20" id="HzY-wt-mjI"/>
+                    <constraint firstItem="WZW-kl-N6s" firstAttribute="leading" secondItem="QEY-r7-Afg" secondAttribute="trailing" constant="12" id="PUt-Ec-eBJ"/>
+                    <constraint firstItem="QEY-r7-Afg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="PeW-LR-PWO"/>
+                    <constraint firstAttribute="bottom" secondItem="QEY-r7-Afg" secondAttribute="bottom" constant="6" id="Qk9-Ku-23S"/>
                     <constraint firstAttribute="centerY" secondItem="0jQ-Xw-MAk" secondAttribute="centerY" id="b8V-3R-s3e"/>
                     <constraint firstAttribute="trailing" secondItem="WZW-kl-N6s" secondAttribute="trailing" constant="8" id="sp4-aX-igT"/>
                 </constraints>
@@ -38,6 +48,7 @@
             <connections>
                 <outlet property="switchButton" destination="WZW-kl-N6s" id="ITO-T2-O7c"/>
                 <outlet property="switchLabel" destination="0jQ-Xw-MAk" id="lWr-Cj-Fbh"/>
+                <outlet property="switchSlider" destination="QEY-r7-Afg" id="m9m-Tw-81o"/>
             </connections>
         </tableViewCell>
     </objects>

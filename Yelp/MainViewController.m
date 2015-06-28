@@ -108,7 +108,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 #pragma mark - FilterViewControlerDelegate
 - (void)filterViewController:(FilterViewController *)fvc didChangeFilter:(NSDictionary *)filter {
     // fire a new network event
-    NSLog(@"fire a new netwrok event: @%@", filter);
+//    NSLog(@"fire a new netwrok event: @%@", filter);
     NSString *query = self.searchBar.text;
     [self fetchBusinessWithQuery:query params:filter];
 }
